@@ -1,12 +1,5 @@
 version: "3"
 services:
-  web:
-    container_name: frontend_react_web_app
-    build: ./frontend/.
-    ports: 
-      - "5173:5173"
-    networks:
-      - main_network
   postgres:
     container_name: postgres
     image: postgres:14-alpine
@@ -17,12 +10,14 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - data-volume:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - main_network
   api:
     container_name: backend_fast_api
-    build: ./backend/.
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     environment:
@@ -36,6 +31,18 @@ services:
     command: >
       sh -c "poetry run bash ./prestart.sh &&
              poetry run uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    networks:
+      - main_network
+  web:
+    container_name: frontend_react_web_app
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports: 
+      - 5173:5173
+    depends_on:
+      - api
+    command: npm run dev -- --host
     networks:
       - main_network
   adminer:
@@ -54,8 +61,8 @@ services:
     container_name: nginxproxymanager
     restart: unless-stopped
     volumes:
-      - npm-volume:/data
-      - npm-volume:/etc/letsencrypt
+      - npm_data:/data
+      - npm_data:/etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
@@ -63,8 +70,8 @@ services:
     networks:
       - main_network
 volumes:
-  data-volume:
-  npm-volume:
+  postgres_data:
+  npm_data:
 networks:
   main_network:
       driver: bridge

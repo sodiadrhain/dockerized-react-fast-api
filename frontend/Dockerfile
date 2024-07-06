@@ -10,8 +10,5 @@ COPY . /app
 # Install node dependencies.
 RUN npm install
 
-# Expose web service.
+# Expose app.
 EXPOSE 5173
-
-# Start the app.
-CMD ["npm", "run", "dev", "--", "--host"]

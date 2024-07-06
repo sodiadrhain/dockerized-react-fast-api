@@ -16,11 +16,5 @@ COPY . /app
 # Install dependencies using Poetry.
 RUN poetry install
 
-# Set up the database with the necessary tables.
-# RUN poetry run bash ./prestart.sh
-
-# Expose web service.
+# Expose app.
 EXPOSE 8000
-
-# Start the app.
-CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
