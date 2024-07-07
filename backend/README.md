@@ -44,7 +44,7 @@ poetry install
 poetry run bash ./prestart.sh
 ```
 
-### Run the backend server**:
+### Run the backend server
 ```
 poetry run uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
@@ -57,7 +57,7 @@ Ensure you have docker installed to do this, to check if docker is installed cor
 docker -v
 ```
 
-and you shpuld see the version of you installed docker application.
+and you should see the version of you installed docker application.
 
 **From within the project directory (/backend) run the following:**
 
