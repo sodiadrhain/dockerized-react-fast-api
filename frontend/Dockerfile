@@ -12,3 +12,6 @@ RUN npm install
 
 # Expose app.
 EXPOSE 5173
+
+# Start the app.
+CMD npm run dev -- --host
