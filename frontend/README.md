@@ -26,11 +26,13 @@ Goto Frontend path
  cd frontend
 ```
 
+Then run 
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Start App for dev environment
 
 ```
 npm run dev
@@ -55,13 +57,13 @@ and you shpuld see the version of you installed docker application.
 **From within the project directory (/frontend) run the following:**
 
 ```
-docker build -t frontend_react_web_app_build:latest .
+docker build -t frontend_react_web_app_image:latest .
 ```
 
 to build image and container for app, when done, run:
 
 ```
-docker run -p 5173:5173 --name frontend_react_web_app -d frontend_react_web_app_build:latest
+docker run -p 5173:5173 --name frontend_react_web_app -d frontend_react_web_app_image:latest
 ```
 
 when this is done, app will basically start on port `5173`.
@@ -102,7 +104,7 @@ This will stop all the container and related to this project.
 To start the docker development environment another time run:
 
 ```
-docker contaner start frontend_react_web_app
+docker container start frontend_react_web_app
 ```
 
 This will start the container again.
