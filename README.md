@@ -32,7 +32,7 @@ Clone the [repository](https://github.com/sodiadrhain/dockerized-react-fast-api.
 
 .......
 
-Run docker compose to start app apps, frontend, backend, postgres (datatbase), adminer (database manager), nginx proxy manager
+Run docker compose to start the apps, frontend, backend, postgres (database), adminer (database manager), nginx proxy manager
 
 ```
 docker-compose up -d
