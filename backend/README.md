@@ -122,7 +122,7 @@ To load the homepage of the app, visit the url below in a browser:
 
 Thus your adventure begins... The project is up and running.
 
-Ensure you update the necessary configurations in the `.env` file, particularly the database configuration.
+Ensure you update the necessary configurations in the `.env` file, particularly the database configuration and the restart the container.
 
 
 ## Deploying as python app - Manually

@@ -98,6 +98,7 @@ docker container start <app-name-or-app-id>
 
 This will start the app again.
 
+Ensure you update the necessary configurations in the `.env` file, particularly the database configuration and the restart the `backend_fast_api` container.
 
 ## Deploying as Docker
 
